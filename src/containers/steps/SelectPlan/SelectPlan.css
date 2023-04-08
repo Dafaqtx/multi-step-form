@@ -1,0 +1,143 @@
+.SelectPlan__plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 18px;
+}
+
+.SelectPlan__plan {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 160px;
+  transition: all 0.3s ease;
+}
+
+.SelectPlan__plan:hover {
+  border-color: var(--border-color-focus);
+  transition: border 0.3s ease;
+}
+
+.SelectPlan__item--selected {
+  border-color: var(--border-color-focus);
+  background: var(--color-alabaster);
+  transition: all 0.3s ease;
+}
+
+.SelectPlan__radio {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.SelectPlan__image {
+  margin-bottom: auto;
+}
+
+.SelectPlan__name {
+  color: var(--color-marine);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  margin-bottom: 7px;
+}
+
+.SelectPlan__price {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-dark-gray);
+}
+
+.SelectPlan__buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.SelectPlan__Link {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  color: var(--color-dark-gray);
+  text-decoration: none;
+}
+
+.SelectPlan__Link:hover {
+  color: var(--color-marine);
+  transition: color 0.3s ease;
+}
+
+.SelectPlan__period {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-alabaster);
+  border-radius: 8px;
+  margin-top: 32px;
+  padding: 14px;
+}
+
+.SelectPlan__value {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--color-dark-gray);
+  transition: color 0.3s ease;
+}
+
+.SelectPlan__value--active {
+  color: var(--color-marine);
+  transition: color 0.3s ease;
+}
+
+.Switch {
+  display: flex;
+  margin: 0 24px;
+}
+
+.Switch__toggler {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 38px;
+  height: 20px;
+  background: var(--color-marine);
+  display: block;
+  border-radius: 10px;
+  position: relative;
+}
+
+.Switch__toggler:after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  width: 12px;
+  height: 12px;
+  background: var(--color-white);
+  border-radius: 100%;
+  transition: all 0.3s ease-out;
+}
+
+.Switch__input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  margin: 0;
+}
+
+.Switch__input:checked + .Switch__toggler:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+.Switch__toggler:active:after {
+  width: 25px;
+}

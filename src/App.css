@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.widget {
+  width: 940px;
+  height: 600px;
+  background: var(--color-white);
+  padding: 16px;
+  box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.0951141);
+  border-radius: 15px;
+  display: flex;
+}

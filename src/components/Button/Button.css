@@ -1,0 +1,25 @@
+.Button {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  background: var(--color-marine);
+  border-radius: 8px;
+  border: none;
+  color: var(--color-white);
+  padding: 15px 24px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.Button:hover {
+  background-color: var(--button-color-hover);
+  transition: background 0.3s ease;
+}
+
+.Button--finish:hover {
+  background-color: var(--color-purplish);
+}
+
+.Button--finish {
+  background-color: var(--color-purplish-hover);
+}

@@ -1,0 +1,43 @@
+.Addon {
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  padding: 24px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 44px 3fr auto;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+}
+
+.Addon:hover {
+  border-color: var(--border-color-focus);
+  transition: border 0.3s ease;
+}
+
+.Addon--active {
+  border-color: var(--border-color-focus);
+  background: var(--color-alabaster);
+  transition: all 0.3s ease;
+}
+
+.Addon__name {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-marine);
+  margin-bottom: 7px;
+}
+
+.Addon__description {
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--color-dark-gray);
+}
+.Addon__price {
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--color-purplish);
+}

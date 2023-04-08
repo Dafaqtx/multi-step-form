@@ -1,0 +1,15 @@
+{
+  "files.associations": {
+    "*.js": "typescriptreact",
+    "style.js": "source.css.jsx.styled"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true
+}

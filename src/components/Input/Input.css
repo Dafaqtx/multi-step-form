@@ -1,0 +1,49 @@
+.Input {
+  margin-bottom: 24px;
+}
+
+.Input__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.Input__label {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.Input__field {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  width: 100%;
+  padding: 14px 16px;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-marine);
+  transition: border 0.3s ease;
+}
+
+.Input__field:focus,
+.Input__field:hover {
+  outline: none;
+  border-color: var(--border-color-focus);
+  transition: border 0.3s ease;
+}
+
+.Input__field::placeholder {
+  color: var(--color-dark-gray);
+}
+
+.Input__field--error {
+  border-color: var(--color-strawberry);
+}
+
+.Input__error {
+  color: var(--color-strawberry);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+}
