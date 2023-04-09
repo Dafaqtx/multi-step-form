@@ -26,8 +26,8 @@
   transition: border 0.3s ease;
 }
 
-.Input__field:focus,
-.Input__field:hover {
+.Input__field:not(.Input__field--error):focus,
+.Input__field:not(.Input__field--error):hover {
   outline: none;
   border-color: var(--border-color-focus);
   transition: border 0.3s ease;
@@ -46,4 +46,16 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
+}
+
+@media screen and (max-width: 780px) {
+  .Input__label {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .Input__error {
+    font-size: 12px;
+    line-height: 14px;
+  }
 }

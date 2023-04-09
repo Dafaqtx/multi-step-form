@@ -46,3 +46,22 @@
   color: var(--color-white);
   margin-top: 5px;
 }
+
+@media screen and (max-width: 780px) {
+  .Sidebar {
+    background: url('/images/bg-sidebar-mobile.svg') center/cover no-repeat;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 32px 0;
+    height: 127px;
+  }
+
+  .Sidebar__step {
+    margin-bottom: 0;
+  }
+
+  .Step__info {
+    display: none;
+  }
+}

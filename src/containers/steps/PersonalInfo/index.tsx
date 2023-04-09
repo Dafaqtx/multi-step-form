@@ -21,10 +21,11 @@ const schema = yup
 type SchemaFormData = yup.InferType<typeof schema>;
 
 interface PersonalInfoProps {
+  startAdornment: React.ReactNode;
   endAdornment: React.ReactNode;
 }
 
-export const PersonalInfo: FC<PersonalInfoProps> = ({ endAdornment }) => {
+export const PersonalInfo: FC<PersonalInfoProps> = ({ startAdornment, endAdornment }) => {
   const { formData, setFormValues, nextStep } = useFormData();
   const {
     control,
@@ -48,10 +49,7 @@ export const PersonalInfo: FC<PersonalInfoProps> = ({ endAdornment }) => {
       autoComplete="off"
       noValidate
     >
-      <h1 className="form-title">Personal info</h1>
-      <p className="form-description">
-        Please provide your name, email address, and phone number.
-      </p>
+      {startAdornment}
       {PERSONAL_INFO_FIELDS.map(({ name, label, placeholder, type, mask }) => (
         <Controller
           key={label}

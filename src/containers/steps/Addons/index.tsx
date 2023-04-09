@@ -10,10 +10,11 @@ import { FormData, useFormData } from '@/context';
 import { getPrice } from '@/utils';
 
 interface AddonsProps {
+  startAdornment: React.ReactNode;
   endAdornment: React.ReactNode;
 }
 
-export const Addons: FC<AddonsProps> = ({ endAdornment }) => {
+export const Addons: FC<AddonsProps> = ({ startAdornment, endAdornment }) => {
   const { formData, nextStep, setFormValues } = useFormData();
   const { handleSubmit, setValue, watch } = useForm<FormData>({
     mode: 'onSubmit',
@@ -38,8 +39,7 @@ export const Addons: FC<AddonsProps> = ({ endAdornment }) => {
       autoComplete="off"
       noValidate
     >
-      <h1 className="form-title">Pick add-ons</h1>
-      <p className="form-description">Add-ons help enhance your gaming experience.</p>
+      {startAdornment}
 
       <div className="Addons__list">
         {ADDONS.map(({ id, name, description, price }) => {

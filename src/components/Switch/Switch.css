@@ -1,0 +1,45 @@
+.Switch {
+  display: flex;
+  margin: 0 24px;
+}
+
+.Switch__toggler {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 38px;
+  height: 20px;
+  background: var(--color-marine);
+  display: block;
+  border-radius: 10px;
+  position: relative;
+}
+
+.Switch__toggler:after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  width: 12px;
+  height: 12px;
+  background: var(--color-white);
+  border-radius: 100%;
+  transition: all 0.3s ease-out;
+}
+
+.Switch__input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  margin: 0;
+}
+
+.Switch__input:checked + .Switch__toggler:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+.Switch__toggler:active:after {
+  width: 25px;
+}

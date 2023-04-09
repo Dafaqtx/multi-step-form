@@ -1,6 +1,6 @@
 .Layout {
-  width: 940px;
-  height: 600px;
+  width: var(--widget-width);
+  height: var(--widget-height);
   background: var(--color-white);
   padding: 16px;
   box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.0951141);
@@ -9,12 +9,14 @@
 }
 
 .Layout__sidebar {
-  width: 275px;
+  width: var(--sidebar-width);
 }
 
 .Layout__form {
-  width: calc(100% - 275px);
-  padding: 40px 84px 16px 100px;
+  max-width: var(--form-width);
+  margin: 0 auto;
+  padding: 40px 0 16px;
+  width: 100%;
 }
 
 .Form__title {
@@ -28,7 +30,36 @@
   font-size: 16px;
   line-height: 25px;
   color: var(--color-dark-gray);
-  margin: 0;
-  margin-top: 10px;
-  margin-bottom: 40px;
+  margin: 10px 0 40px;
+}
+
+@media screen and (max-width: 930px) {
+  .Layout__form {
+    max-width: calc(100% - var(--sidebar-width));
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .Layout {
+    flex-direction: column;
+    height: auto;
+    border-radius: 0;
+    padding: 0;
+    background: transparent;
+    width: 100%;
+  }
+
+  .Layout__sidebar {
+    width: 100%;
+  }
+
+  .Layout__form {
+    position: absolute;
+    max-width: 100%;
+    top: 52px;
+    width: calc(100% - 32px);
+    left: 16px;
+    margin: 0;
+    height: auto;
+  }
 }

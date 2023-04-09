@@ -16,6 +16,12 @@
   --border-color: hsl(231, 23%, 87%);
   --border-color-focus: hsl(243, 100%, 62%);
   --button-color-hover: hsl(213, 72%, 31%);
+
+  /* Widths */
+  --widget-width: 940px;
+  --widget-height: 600px;
+  --sidebar-width: 275px;
+  --form-width: calc(100% - 450px);
 }
 
 * {
@@ -42,17 +48,9 @@ code {
   height: 100vh;
 }
 
-.form-title {
-  font-size: 32px;
-  line-height: 37px;
-  margin: 0;
-}
-
-.form-description {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 25px;
-  color: var(--color-dark-gray);
-  margin-top: 10px;
-  margin-bottom: 40px;
+@media screen and (max-width: 780px) {
+  #root {
+    height: max-content;
+    display: block;
+  }
 }

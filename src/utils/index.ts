@@ -1,3 +1,4 @@
+import { ADDONS, PLANS } from '@/constants';
 import type { Addon } from '@/context';
 
 interface IPriceCalculationResult {
@@ -44,4 +45,12 @@ export const getTotalPrice = ({
   const total = (planPrice + addons.reduce((acc, cur) => acc + cur.price, 0)) * factor;
 
   return `+$${total}/${payTime}`;
+};
+
+export const getPlan = (plan: string) => {
+  return PLANS.find((planData) => planData.value === plan);
+};
+
+export const getAddon = (addons: Record<string, boolean>) => {
+  return ADDONS.filter((addon) => addons[addon.id]);
 };

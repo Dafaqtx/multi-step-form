@@ -2,23 +2,23 @@ import './Summary.css';
 
 import { FC } from 'react';
 
-import { ADDONS, PLANS } from '@/constants';
 import { useFormData } from '@/context';
-import { getPrice, getTotalPrice } from '@/utils';
+import { getAddon, getPlan, getPrice, getTotalPrice } from '@/utils';
 
 interface SummaryProps {
+  startAdornment: React.ReactNode;
   endAdornment: React.ReactNode;
 }
 
-export const Summary: FC<SummaryProps> = ({ endAdornment }) => {
+export const Summary: FC<SummaryProps> = ({ startAdornment, endAdornment }) => {
   const {
     formData: { plan, isYearly, addons },
     prevStep,
     nextStep,
   } = useFormData();
 
-  const selectedPlan = PLANS.find((planData) => planData.value === plan);
-  const selectedAddons = ADDONS.filter((addon) => addons[addon.id]);
+  const selectedPlan = getPlan(plan);
+  const selectedAddons = getAddon(addons);
   const { formattedPrice: formattedPlanPrice } = getPrice({
     price: selectedPlan!.price,
     isYearly,
@@ -26,15 +26,12 @@ export const Summary: FC<SummaryProps> = ({ endAdornment }) => {
 
   return (
     <form className="Summary" onSubmit={nextStep}>
-      <h1 className="form-title">Finishing up</h1>
-      <p className="form-description">
-        Double-check everything looks OK before confirming.
-      </p>
+      {startAdornment}
       <div className="Summary__box">
         <div className="Summary__plan">
           <div className="Summary__plan-name">
-            {selectedPlan?.label} {isYearly ? '(Yearly)' : '(Monthly)'}
-            <button type="button" className="Form__Link" onClick={prevStep}>
+            {selectedPlan!.label} {isYearly ? '(Yearly)' : '(Monthly)'}
+            <button type="button" className="Summary__change" onClick={prevStep}>
               Change
             </button>
           </div>

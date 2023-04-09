@@ -16,10 +16,10 @@
   transition: background 0.3s ease;
 }
 
-.Button--finish:hover {
+.Button--finish {
   background-color: var(--color-purplish);
 }
 
-.Button--finish {
+.Button--finish:hover {
   background-color: var(--color-purplish-hover);
 }

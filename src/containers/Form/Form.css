@@ -10,30 +10,16 @@
   height: 100%;
 }
 
-.Form__navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: auto;
-}
+@media screen and (max-width: 780px) {
+  .Form {
+    height: calc(100vh - 110px);
+  }
 
-.Form__navigation--only-next {
-  justify-content: flex-end;
-}
-
-.Form__Link {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 18px;
-  color: var(--color-dark-gray);
-  text-decoration: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-.Form__Link:hover {
-  color: var(--color-marine);
-  transition: color 0.3s ease;
+  .Form > form {
+    height: auto;
+    background: var(--color-white);
+    box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.0951141);
+    border-radius: 10px;
+    padding: 32px 24px;
+  }
 }

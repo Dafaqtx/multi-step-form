@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { createContext, useContext, useEffect, useState } from 'react';
 
+import { PLANS } from '@/constants';
+
 export interface Addon {
   id: string;
   name: string;
@@ -34,7 +36,7 @@ const defaultFormData = {
   name: '',
   email: '',
   phone: '',
-  plan: 'arcade',
+  plan: PLANS[0].value,
   isYearly: false,
   addons: { service: false, storage: false, customization: false },
 };

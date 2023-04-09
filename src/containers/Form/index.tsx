@@ -1,27 +1,26 @@
 import './Form.css';
 
-import cn from 'classnames';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
-import { Button } from '@/components';
 import { Addons, Finish, PersonalInfo, SelectPlan, Summary } from '@/containers/steps';
 import { useFormData } from '@/context';
 
+import Header from '../Header';
+import Navigation from '../Navigation';
+
 export const Form: FC = () => {
-  const { currentStep, formData, prevStep } = useFormData();
+  const { currentStep } = useFormData();
 
-  console.log('formData', formData);
-
-  const renderStep = (footer: React.ReactNode) => {
+  const renderStep = () => {
     switch (currentStep) {
       case 1:
-        return <PersonalInfo endAdornment={footer} />;
+        return <PersonalInfo startAdornment={<Header />} endAdornment={<Navigation />} />;
       case 2:
-        return <SelectPlan endAdornment={footer} />;
+        return <SelectPlan startAdornment={<Header />} endAdornment={<Navigation />} />;
       case 3:
-        return <Addons endAdornment={footer} />;
+        return <Addons startAdornment={<Header />} endAdornment={<Navigation />} />;
       case 4:
-        return <Summary endAdornment={footer} />;
+        return <Summary startAdornment={<Header />} endAdornment={<Navigation />} />;
       case 5:
         return <Finish />;
 
@@ -30,31 +29,7 @@ export const Form: FC = () => {
     }
   };
 
-  return (
-    <div className="Form">
-      {renderStep(
-        <div
-          className={cn('Form__navigation', {
-            'Form__navigation--only-next': currentStep === 1,
-          })}
-        >
-          {currentStep !== 1 && (
-            <button type="button" className="Form__Link" onClick={prevStep}>
-              Go Back
-            </button>
-          )}
-
-          {currentStep < 4 ? (
-            <Button type="submit">Next Step</Button>
-          ) : (
-            <Button variant="finish" type="submit">
-              Confirm
-            </Button>
-          )}
-        </div>,
-      )}
-    </div>
-  );
+  return <div className="Form">{renderStep()}</div>;
 };
 
 export default Form;

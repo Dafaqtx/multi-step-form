@@ -4,15 +4,17 @@ import cn from 'classnames';
 import { FC, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { Switch } from '@/components';
 import { PLANS } from '@/constants';
 import { FormData, useFormData } from '@/context';
 import { getPrice } from '@/utils';
 
 interface SelectPlanProps {
+  startAdornment: React.ReactNode;
   endAdornment: React.ReactNode;
 }
 
-export const SelectPlan: FC<SelectPlanProps> = ({ endAdornment }) => {
+export const SelectPlan: FC<SelectPlanProps> = ({ startAdornment, endAdornment }) => {
   const { formData, setFormValues, nextStep } = useFormData();
   const { handleSubmit, register, watch, setValue } = useForm<FormData>({
     mode: 'onSubmit',
@@ -44,10 +46,7 @@ export const SelectPlan: FC<SelectPlanProps> = ({ endAdornment }) => {
       autoComplete="off"
       noValidate
     >
-      <h1 className="form-title">Select your plan</h1>
-      <p className="form-description">
-        You have the option of monthly or yearly billing.
-      </p>
+      {startAdornment}
 
       <div className="SelectPlan__plans">
         {PLANS.map(({ value, label, price }) => {
@@ -72,8 +71,10 @@ export const SelectPlan: FC<SelectPlanProps> = ({ endAdornment }) => {
               <div className="SelectPlan__image">
                 <img src={`/images/icon-${value}.svg`} alt={label} />
               </div>
-              <span className="SelectPlan__name">{label}</span>
-              <span className="SelectPlan__price">{formattedPrice}</span>
+              <div className="SelectPlan__plan-wrapper">
+                <span className="SelectPlan__name">{label}</span>
+                <span className="SelectPlan__price">{formattedPrice}</span>
+              </div>
             </button>
           );
         })}
@@ -87,19 +88,7 @@ export const SelectPlan: FC<SelectPlanProps> = ({ endAdornment }) => {
         >
           Monthly
         </span>
-        <div className="Switch">
-          <input
-            {...register('isYearly')}
-            className="Switch__input"
-            type="checkbox"
-            checked={isYearlyValue}
-            onChange={handleChangePeriod}
-            id="isYearly"
-          />
-          <label htmlFor="isYearly" className="Switch__toggler">
-            Toggle
-          </label>
-        </div>
+        <Switch onChange={handleChangePeriod} checked={isYearlyValue} id="isYearly" />
         <span
           className={cn('SelectPlan__value', {
             'SelectPlan__value--active': isYearlyValue,
